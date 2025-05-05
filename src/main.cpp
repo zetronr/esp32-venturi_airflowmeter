@@ -39,7 +39,7 @@ void readSensor2(void *pvParameters){
   
 }
 
-void calculateData(void *pvParameters){
+void deltaPressure(void *pvParameters){
   while(1){
     long pressure1, pressure2;
     if (xQueueReceive(queue1, &pressure1, portMAX_DELAY) == pdPASS) { 
@@ -75,7 +75,7 @@ void setup() {
 
     xTaskCreate(readSensor1,"sensor 1",1000, NULL, 1, NULL);
     xTaskCreate(readSensor2,"sensor 2",1000, NULL, 1, NULL);
-    xTaskCreate(calculateData,"kalkulasi",1000, NULL, 1, NULL);
+    xTaskCreate(deltaPressure,"delta",1000, NULL, 1, NULL);
 }
 
 void loop() {
