@@ -162,5 +162,5 @@ void loop() {
     lastP2 = P2;
   }
 
-  delay(100);
+  delay(1000);
 }
